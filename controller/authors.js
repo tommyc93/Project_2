@@ -1,12 +1,8 @@
 const express = require('express')
 const authors = express.Router()
-<<<<<<< HEAD
 
-
-=======
 const Author = require('../models/authors.js')
 const Recipe = require('../models/recipe.js')
->>>>>>> 791b1e7982d72549024ac4d1a26167c02814bd19
 
 
 //Index route
