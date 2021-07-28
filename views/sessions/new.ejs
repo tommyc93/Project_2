@@ -8,6 +8,14 @@
     <body>
         <div class="container">
             <h1>Sign In</h1>
+            <form class="" action="/sessions" method="POST">
+                <label>Username:</label>
+                <input type="text" class="bar" name="username" required/><br/>
+                <label>Password:</label>
+                <input type="password" name="password"/><br/>
+                <input type="submit" value="Submit"/>
+                <button class="direct" type="button" onclick="window.location.href='/products'">Back</button>
+            </form>
         </div>
     </body>
 </html>

@@ -6,8 +6,26 @@
         <title>Edit</title>
     </head>
     <body>
+        <nav>
+            <%-include('../partial/nav.ejs')%>
+        </nav>
         <div class="container">
-            <h1>Editting</h1>
+            <h1>Editing Recipe</h1>
+            <form action="/recipes/<%=item.id%>?_method=PUT" method="POST">
+                <label>Name</label>
+                <input type="text" name="name" value="<%=item.name%>"/><br/>
+                <label>Description</label>
+                <input type="text" name="description" value="<%=item.description%>"/><br/>
+                <label>Image</label>
+                <input type="text" name="img" value="<%=item.img%>"/><br/>
+                <label>Serving Size</label>
+                <input type="number" name="serving" value="<%=item.serving%>"/><br/>
+                <label>Ingredients</label>
+                <input type="text" name="ingredients" value="<%=item.ingredients%>"/><br/>
+                <label>Directions</label>
+                <input type="text" name="directions" value="<%=item.directions%>"/><br/>
+                <input type="submit" value="Submit">
+            </form>
         </div>
     </body>
 </html>

@@ -6,8 +6,36 @@
         <title>Show</title>
     </head>
     <body>
+        <nav>
+            <%-include('../partial/nav.ejs')%>
+        </nav>
         <div class="container">
-            <h1>Show</h1>
+            <div class="">
+                <h2><%=item.name%></h2>
+                <img src="<%=item.img%>" alt="">
+                <h5>Description</h5>
+                <p><%=item.description%></p>
+                <h5>Serving Size:</h5>
+                <p><%=item.serving%></p>
+                <h5>Ingredients</h5>
+                <ul>
+                    <% for(let arr of item.ingredients) { %>
+                    <li><%=arr%></li>
+                    <% } %>
+                </ul>
+                <h5>Directions</h5>
+                <ul>
+                    <% for(let arr of item.directions) { %>
+                    <li><%=arr%></li>
+                    <% } %>
+                </ul>
+            </div>
+            <form action="/recipes/<%=item.id%>?_method=DELETE" method="POST">
+                <button type="button" onclick="window.location.href='/recipes/<%=item.id%>/edit'">Edit Recipe</button>
+                <input type="submit" value="Delete">
+                <button type="button" onclick="window.history.back()">Previous Page</button>
+            </form>
+
         </div>
     </body>
 </html>

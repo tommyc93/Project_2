@@ -16,7 +16,43 @@ const isAuthenticated = (req, res, next) => {
 //===================Index route===================
 router.get('/', (req, res) => {
     Recipe.find({}, (error, items) => {
-        res.render('recipe/index.ejs', {
+        res.render('recipe/home.ejs', {
+            item: items,
+            currentUser: req.session.currentUser
+        })
+    })
+})
+
+router.get('/breakfast', (req, res) => {
+    Recipe.find({}, (error, items) => {
+        res.render('collections/soups.ejs', {
+            item: items,
+            currentUser: req.session.currentUser
+        })
+    })
+})
+
+router.get('/airfryer', (req, res) => {
+    Recipe.find({}, (error, items) => {
+        res.render('collections/soups.ejs', {
+            item: items,
+            currentUser: req.session.currentUser
+        })
+    })
+})
+
+router.get('/dessert', (req, res) => {
+    Recipe.find({}, (error, items) => {
+        res.render('collections/soups.ejs', {
+            item: items,
+            currentUser: req.session.currentUser
+        })
+    })
+})
+
+router.get('/soups', (req, res) => {
+    Recipe.find({}, (error, items) => {
+        res.render('collections/soups.ejs', {
             item: items,
             currentUser: req.session.currentUser
         })
@@ -64,7 +100,7 @@ router.post('/', (req, res) => {
 })
 //===================Show route===================
 router.get('/:id', (req, res) => {
-    Product.findById(req.params.id, (error, foundRecipe) => {
+    Recipe.findById(req.params.id, (error, foundRecipe) => {
         res.render('recipe/show.ejs', {
             item: foundRecipe,
             currentUser: req.session.currentUser
