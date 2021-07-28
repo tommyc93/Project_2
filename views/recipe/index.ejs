@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <%-include('../partial/style.ejs')%>
+        <title>Index</title>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Index</h1>
+            <% for(let i = 0; i < item.length; i++) { %>
+                <h4><%=item[i].name%></h4>
+                <img src="<%=item[i].img%>" alt="">
+                <ul>
+                    <li><%=item[i].description%></li>
+                    <li><%=item[i].serving%></li>
+                <% for(let arr of item[i].ingredients) { %>
+                    <li><%=arr%></li>
+                <% }  %>
+
+                <% for(let arr of item[i].directions) { %>
+                    <li><%=arr%></li>
+                <% }  %>
+
+                </ul>
+            <% } %>
+        </div>
+    </body>
+</html>
