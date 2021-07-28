@@ -15,7 +15,9 @@
                 <img src="<%=item.img%>" alt="">
                 <h5>Description</h5>
                 <p><%=item.description%></p>
-                <h5>Serving Size:</h5>
+                <h5>Cooking Time</h5>
+                <p><%=item.readyIn%></p>
+                <h5>Serving Size</h5>
                 <p><%=item.serving%></p>
                 <h5>Ingredients</h5>
                 <ul>
@@ -24,11 +26,11 @@
                     <% } %>
                 </ul>
                 <h5>Directions</h5>
-                <ul>
+                <ol>
                     <% for(let arr of item.directions) { %>
                     <li><%=arr%></li>
                     <% } %>
-                </ul>
+                </ol>
             </div>
             <form action="/recipes/<%=item.id%>?_method=DELETE" method="POST">
                 <button type="button" onclick="window.location.href='/recipes/<%=item.id%>/edit'">Edit Recipe</button>
