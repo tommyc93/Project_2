@@ -14,14 +14,6 @@
 //     }
 // })
 //
-// const authorSchema = new mongoose.Schema({
-//     name: {type: String},
-//     articles: [articleSchema]
-//     },
-//     {timestamps: true}
-// )
-// //Creating constructor functions
-// // const Article = mongoose.model('Article', articleSchema)
-// const Author = mongoose.model('Author', authorSchema)
+// const Article = mongoose.model('Article', articleSchema)
 //
-// module.exports = Author
+// module.exports = Article

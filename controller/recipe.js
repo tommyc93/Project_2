@@ -4,7 +4,7 @@
 const express = require('express')
 const router = express.Router()
 const Recipe = require('../models/recipe.js')
-const Author = require('../models/authors.js')
+
 
 //Middleware authentication
 const isAuthenticated = (req, res, next) => {
@@ -116,6 +116,16 @@ router.get('/:id/edit', (req, res) => {
         res.render('recipe/edit.ejs', {
             item: foundRecipe,
             currentUser: req.session.currentUser
+        })
+    })
+})
+
+//===================Comment route===================
+router.put('/:id/comments', (req, res) => {
+    Recipe.findById(req.params.id, (error, post) => {
+        post.comments.push(req.body.comments)
+        post.save(() => {
+            res.redirect('/recipes/' + req.params.id)
         })
     })
 })

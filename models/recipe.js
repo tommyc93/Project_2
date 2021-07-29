@@ -25,7 +25,8 @@ const recipeSchema = new mongoose.Schema({
     img: {type: String},
     serving: {type: Number},
     ingredients: [{type: String, required: true}],
-    directions: [{type: String, required: true}]
+    directions: [{type: String, required: true}],
+    comments: [{type: String}]
     },
     {timestamps: true}
 )

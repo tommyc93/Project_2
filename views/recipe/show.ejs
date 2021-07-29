@@ -22,7 +22,7 @@
                 <h5>Ingredients</h5>
                 <ul>
                     <% for(let arr of item.ingredients) { %>
-                    <li><%=arr%></li>
+                    <li><%=arr%><br/></li>
                     <% } %>
                 </ul>
                 <h5>Directions</h5>
@@ -36,8 +36,17 @@
                 <button type="button" onclick="window.location.href='/recipes/<%=item.id%>/edit'">Edit Recipe</button>
                 <input type="submit" value="Delete">
                 <button type="button" onclick="window.history.back()">Previous Page</button>
-            </form>
+            </form><br/>
+            <div class="comments">
+                <% for(let post of item.comments) { %>
+                <p><%=currentUser%><%=post%></p>
+                <% } %>
 
+                <form class="" action="/recipes/<%=item.id%>/comments?_method=PUT" method="POST">
+                    <textarea name="comments" rows="20" cols="50"></textarea>
+                    <input type="submit" value="Post Comment">
+                </form>
+            </div>
         </div>
     </body>
 </html>

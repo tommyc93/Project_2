@@ -48,8 +48,10 @@ const userController = require('./controller/users.js')
 app.use('/users', userController)
 const sessionsController = require('./controller/sessions.js')
 app.use('/sessions', sessionsController)
-const authorsController = require('./controller/authors.js')
-app.use('/authors', authorsController)
+// const authorsController = require('./controller/authors.js')
+// app.use('/authors', authorsController)
+// const articlesController = require('./controller/articles.js');
+// app.use('/articles', articlesController)
 //==========================================================================================
 // Database
 //------------------------------------------------------------------------------------------
