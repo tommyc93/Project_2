@@ -6,10 +6,10 @@
         <title>New</title>
     </head>
     <body>
-        <nav>
-            <%-include('../partial/nav.ejs')%>
-        </nav>
         <div class="container">
+            <nav class="navbar fixed-top navbar-light bg-light">
+                <%-include('../partial/nav.ejs')%>
+            </nav>
             <h1>Adding New Recipe</h1>
             <form action="/recipes" method="POST">
                 <ul>

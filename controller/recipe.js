@@ -26,7 +26,7 @@ router.get('/', (req, res) => {
 
 router.get('/breakfast', (req, res) => {
     Recipe.find({category: "breakfast"}, (error, items) => {
-        res.render('collections/soups.ejs', {
+        res.render('collections/breakfast.ejs', {
             item: items,
             currentUser: req.session.currentUser
         })
@@ -35,7 +35,7 @@ router.get('/breakfast', (req, res) => {
 
 router.get('/airfryer', (req, res) => {
     Recipe.find({category: "airfryer"}, (error, items) => {
-        res.render('collections/soups.ejs', {
+        res.render('collections/airfryer.ejs', {
             item: items,
             currentUser: req.session.currentUser
         })
@@ -44,7 +44,7 @@ router.get('/airfryer', (req, res) => {
 
 router.get('/dessert', (req, res) => {
     Recipe.find({category: "dessert"}, (error, items) => {
-        res.render('collections/soups.ejs', {
+        res.render('collections/dessert.ejs', {
             item: items,
             currentUser: req.session.currentUser
         })
@@ -109,7 +109,7 @@ router.get('/seed', (req, res) => {
             category: "airfryer",
             name: "Fried Chicken",
             description: "Imagine the best fried chicken you've ever had. Now imagine if it wasn't even fried. Crazy, right?",
-            img: "https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/delish-190618-air-fryer-fried-chicken-361-landscape-pf-1561574618.png?crop=0.668xw:1.00xh;0.0867xw,0&resize=980:*",
+            img: "https://www.columbusunderground.com/wp-content/uploads/2015/05/bonchon.jpg",
             readyIn: "20-25 min",
             serving: 3,
             ingredients: ["2 lb. bone-in skin-on chicken pieces (mix of cuts)", "2 cups Buttermilk", "1/2 cup Hot Sauce", "3 tsp Kosher Salt", "2 cups all-purpose flour", "1 tsp garlic powder", "1 tsp onion powder", "1/2 tsp oregano", "1/2 tsp black pepper", "1/4 tsp cayenne pepper"],

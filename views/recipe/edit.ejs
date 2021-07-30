@@ -6,10 +6,10 @@
         <title>Edit</title>
     </head>
     <body>
-        <nav>
-            <%-include('../partial/nav.ejs')%>
-        </nav>
         <div class="container">
+            <nav class="navbar fixed-top navbar-light bg-light">
+                <%-include('../partial/nav.ejs')%>
+            </nav>
             <h1>Editing Recipe</h1>
             <form action="/recipes/<%=item.id%>?_method=PUT" method="POST">
                 <label for="category">Choose a Category:</label>

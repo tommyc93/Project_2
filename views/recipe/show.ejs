@@ -6,46 +6,55 @@
         <title>Show</title>
     </head>
     <body>
-        <nav>
-            <%-include('../partial/nav.ejs')%>
-        </nav>
         <div class="container">
-            <div class="">
+            <nav class="navbar navbar-light bg-light">
+                <%-include('../partial/nav.ejs')%>
+            </nav>
+            <div class="row align-items-start">
                 <h2><%=item.name%></h2>
                 <img src="<%=item.img%>" alt="">
-                <h5>Description</h5>
-                <p><%=item.description%></p>
-                <h5>Cooking Time</h5>
-                <p><%=item.readyIn%></p>
-                <h5>Serving Size</h5>
-                <p><%=item.serving%></p>
-                <h5>Ingredients</h5>
-                <ul>
-                    <% for(let arr of item.ingredients) { %>
-                    <li class="ing"><%=arr%><br/></li>
-                    <% } %>
-                </ul>
-                <h5>Directions</h5>
-                <ol>
-                    <% for(let arr of item.directions) { %>
-                    <li><%=arr%></li>
-                    <% } %>
-                </ol>
+                <div class="col">
+                    <h5>Description</h5>
+                    <p><%=item.description%></p>
+                    <h5>Cooking Time</h5>
+                    <p><%=item.readyIn%></p>
+                    <h5>Serving Size</h5>
+                    <p><%=item.serving%></p>
+                </div>
+                <div class="col">
+                    <h5>Ingredients</h5>
+                    <ul>
+                        <% for(let arr of item.ingredients) { %>
+                        <li class="ing"><%=arr%><br/></li>
+                        <% } %>
+                    </ul>
+                </div>
+                <div class="col">
+                    <h5>Directions</h5>
+                    <ol>
+                        <% for(let arr of item.directions) { %>
+                        <li><%=arr%></li>
+                        <% } %>
+                    </ol>
+                </div>
+
             </div>
-            <form action="/recipes/<%=item.id%>?_method=DELETE" method="POST">
-                <button type="button" onclick="window.location.href='/recipes/<%=item.id%>/edit'">Edit Recipe</button>
-                <input type="submit" value="Delete">
-                <button type="button" onclick="window.history.back()">Previous Page</button>
+            <form class="text-center" action="/recipes/<%=item.id%>?_method=DELETE" method="POST">
+                <button class="btn btn-outline-success btn-lg" type="button" onclick="window.location.href='/recipes/<%=item.id%>/edit'">Edit Recipe</button>
+                <button class="btn btn-outline-danger btn-lg" type="submit">Delete</button>
+
             </form><br/>
-            <div class="comments">
+            <div class="card">
                 <% for(let post of item.comments) { %>
-                <p><%=post%></p>
+                    <div class="card-body">
+                        <p><%=post%></p>
+                    </div>
                 <% } %>
 
-                <form class="" action="/recipes/<%=item.id%>/comments?_method=PUT" method="POST">
-
-                    <textarea name="comments" rows="20" cols="50"></textarea>
-                    <input type="submit" value="Post Comment">
+                <form class="text-center" action="/recipes/<%=item.id%>/comments?_method=PUT" method="POST">
+                    <textarea name="comments" rows="20" cols="50"></textarea><br/>
+                    <button class="btn btn-outline-warning btn-lg" type="submit">Post Comment</button>
+                    <button class="btn btn-outline-primary btn-lg" type="button" onclick="window.history.back()">Previous Page</button>
                 </form>
             </div>
         </div>
