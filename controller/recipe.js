@@ -153,13 +153,13 @@ router.get('/seed', (req, res) => {
 })
 
 //===================New route===================
-router.get('/new', (req, res) => {
+router.get('/new', isAuthenticated, (req, res) => {
     res.render("recipe/new.ejs", {
         currentUser: req.session.currentUser
     })
 })
 //===================Create route===================
-router.post('/', (req, res) => {
+router.post('/', isAuthenticated, (req, res) => {
     Recipe.create(req.body, (error, createdRecipe) => {
         res.redirect('/recipes')
     })
@@ -174,7 +174,7 @@ router.get('/:id', (req, res) => {
     })
 })
 //===================Edit route===================
-router.get('/:id/edit', (req, res) => {
+router.get('/:id/edit', isAuthenticated, (req, res) => {
     Recipe.findById(req.params.id, (error, foundRecipe) => {
         res.render('recipe/edit.ejs', {
             item: foundRecipe,
@@ -184,7 +184,7 @@ router.get('/:id/edit', (req, res) => {
 })
 
 //===================Comment route===================
-router.put('/:id/comments', (req, res) => {
+router.put('/:id/comments', isAuthenticated, (req, res) => {
     Recipe.findById(req.params.id, (error, post) => {
         post.comments.push(req.body.comments)
         post.save(() => {
@@ -206,7 +206,7 @@ router.put('/:id', (req, res) => {
     })
 })
 //===================Delete route===================
-router.delete('/:id', (req, res) => {
+router.delete('/:id', isAuthenticated, (req, res) => {
     Recipe.findByIdAndRemove(req.params.id, (error, data) => {
         res.redirect('/recipes')
     })
