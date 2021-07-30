@@ -22,7 +22,7 @@
                 <h5>Ingredients</h5>
                 <ul>
                     <% for(let arr of item.ingredients) { %>
-                    <li><%=arr%><br/></li>
+                    <li class="ing"><%=arr%><br/></li>
                     <% } %>
                 </ul>
                 <h5>Directions</h5>
@@ -39,10 +39,11 @@
             </form><br/>
             <div class="comments">
                 <% for(let post of item.comments) { %>
-                <p><%=currentUser%><%=post%></p>
+                <p><%=post%></p>
                 <% } %>
 
                 <form class="" action="/recipes/<%=item.id%>/comments?_method=PUT" method="POST">
+
                     <textarea name="comments" rows="20" cols="50"></textarea>
                     <input type="submit" value="Post Comment">
                 </form>

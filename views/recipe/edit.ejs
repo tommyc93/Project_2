@@ -11,23 +11,32 @@
         </nav>
         <div class="container">
             <h1>Editing Recipe</h1>
-            <form action="/authors/<%=article._id%>?_method=PUT" method="post">
-                <select name="authorId">
-                    <% for(let i = 0; i < authors.length; i++) { %>
-                        <option
-                            value="<%=authors[i]._id%>"
-                            <% if(authors[i]._id.toString() === articleAuthor._id.toString()){ %>
-                                selected
-                            <% } %>
-                            >
-                            <%=authors[i].name%>
-                        </option>
-                            <% } %>
-                            </select><br/>
-                <input type="text" name="title" value="<%=article.title%>"/><br/>
-                <textarea name="body"><%=article.body%></textarea><br/>
-                <input type="submit" value="Update Article"/>
+            <form action="/recipes/<%=item.id%>?_method=PUT" method="POST">
+                <label for="category">Choose a Category:</label>
+                <select form="whatever" name="category" id="category">
+                  <option value="airfryer">Airfryer</option>
+                  <option value="breakfast">Breakfast</option>
+                  <option value="soups">Soups</option>
+                  <option value="dessert">Dessert</option>
+                </select>
+                <label>Name</label>
+                <input type="text" name="name" value="<%=item.name%>"/><br/>
+                <label>Description</label>
+                <input type="text" name="description" value="<%=item.description%>"/><br/>
+                <label>Cooking Time</label>
+                <input type="text" name="readyIn" value="<%=item.readyIn%>"><br/>
+                <label>Image Link</label>
+                <input type="text" name="img" value="<%=item.img%>"/><br/>
+                <label>Serving Size</label>
+                <input type="number" name="serving" value="<%=item.serving%>" /><br/>
+                <label>Ingredients</label>
+                <input type="text" name="ingredients" value="<%=item.ingredients%>"/><br/>
+                <label>Directions</label>
+                <input type="text" name="directions" value="<%=item.directions%>"/><br/>
+                <input type="submit" value="Submit">
+                <button type="button" onclick="window.history.back()">Previous Page</button>
             </form>
+
         </div>
     </body>
 </html>

@@ -13,14 +13,22 @@
             <h1>Adding New Recipe</h1>
             <form action="/recipes" method="POST">
                 <ul>
+                    <label for="category">Choose a Category:</label>
+                    <select name="category" id="category">
+                      <option value="airfryer">Airfryer</option>
+                      <option value="breakfast">Breakfast</option>
+                      <option value="soups">Soups</option>
+                      <option value="dessert">Dessert</option>
+                    </select>
                     <input type="text" name="name" placeholder="Name"/><br/>
                     <input type="text" name="description" placeholder="Description"/><br/>
-                    <input type="text" name="readyIn" placeholder="Cooking Time">
+                    <input type="text" name="readyIn" placeholder="Cooking Time"><br/>
                     <input type="text" name="img" placeholder="Img link"/><br/>
                     <input type="number" name="serving" placeholder="Serving Size"/><br/>
                     <input type="text" name="ingredients" placeholder="Ingredients, use commas to seperate"/><br/>
                     <input type="text" name="directions" placeholder="Directions, use commas to seperate"/><br/>
                     <input type="submit" value="Submit">
+                    <button type="button" onclick="window.history.back()">Previous Page</button>
                 </ul>
             </form>
         </div>
