@@ -28,3 +28,7 @@ If I had more time I would like to be able to add:
 - Search functionality
 - Checkbox next to ingredients so people may add the list of ingredients to a shopping list
 - Expand more on the recipes and categories
+
+Need help with:
+- Learning more from the markdown of Week 6 Day 5
+- When adding to my ingredients and directions; either by editting/adding recipes, make it so it comes out in list format.
